@@ -25,7 +25,7 @@ def signup(request):
 		userN.save()
 		avatar_profile = UserAvatar()
 		avatar_profile.user = userN
-		avatar_profile.avatar = avatar_form.cleaned_data['avatar_image']
+		avatar_profile.avatar = request.FILES['avatar_image']
 		avatar_profile.save()
 		userN = authenticate(username=username, password=password)
 		if userN is not None:
@@ -36,16 +36,16 @@ def signup(request):
 				return render(request, 'games/index.html') #, {'albums': albums})
 	avatar_form = middleManAvatar()
 	context = {
-	    "form": form,
-	    "avatar_form" : avatar_form
+			"form": form,
+			"avatar_form" : avatar_form
 	}
 	return render(request, 'games/signup.html', context)
 
 def myAccount(request):
 	# if request.user.is_authenticated():
-	# 	user = request.user
-	# 	pic = UserAvatar.objects.filter(user=request.user)
-	return render(request, 'games/myAccount.html')#, {'pic':pic})
+	#   user = request.user
+	pic = UserAvatar.objects.filter(user=request.user).avatar
+	return render(request, 'games/myAccount.html', {'pic':pic})
 
 def reward(request):
 	return render(request, 'games/reward.html')
