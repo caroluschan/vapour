@@ -1,0 +1,42 @@
+{% extends 'games/base.html' %}
+
+{% block navlist %}
+<ul class="nav navbar-nav navbar-left">
+    <li><a href="">Genres</a></li>
+    <li><a href="">Tags</a></li>
+    <li><a href="{% url 'games:purchased' %}">Purchased</a></li>
+    <li><a href="{% url 'games:myAccount' %}">My Account</a></li>
+</ul>
+{% endblock %}
+
+{% block contentKing %}
+<div>
+    <div class="login-form" style="margin: 50px auto; max-width: 500px;">
+        <h3 style="text-align: center; width: 100%; margin-bottom: 25px;">My Account</h3>
+        <div style="text-align: center; margin: 20px auto 10px auto;">
+            <img src="{{ pic.avatar.url }}" style="width: 100px; height: 100px;"> <!-- {% static 'games/images/avatar.png'%} -->
+        </div>
+
+        <a class="btn btn-block btn-default" href="#" style="width: 200px; margin: 0 auto 10px auto;">Change Image</a>
+        <h7>Username</h7>
+        <div class="form-group">
+            <input type="text" class="form-control login-field" value="michellelychan" placeholder="Username" id="login-name">
+            <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+
+        <h7>Password</h7>
+        <div class="form-group">
+            <input type="password" class="form-control login-field" value="123456" placeholder="Password" id="login-pass">
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <h7>Email Address</h7>
+        <div class="form-group">
+            <input type="text" class="form-control login-field" value="michelle@gmail.com" placeholder="Email Address">
+            <label class="login-field-icon fui-lock"></label>
+        </div>
+
+        <a class="btn btn-primary btn-lg btn-block" href="#">Update</a>
+    </div>
+</div>
+{% endblock %}

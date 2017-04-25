@@ -1,0 +1,72 @@
+{% extends 'games/base.html' %}
+
+{% block navlist %}
+<ul class="nav navbar-nav navbar-left">
+    <li><a href="">Genres</a></li>
+    <li><a href="">Tags</a></li>
+    <li><a href="{% url 'games:purchased' %}">Purchased</a></li>
+    <li><a href="{% url 'games:myAccount' %}">My Account</a></li>
+</ul>
+{% endblock %}
+
+{% block contentKing %}
+<div style="background: rgba(0,0,0,0.05); margin: 20px; padding: 20px;">
+    <h3>Your Rewards</h3>
+    <div class="row" style="max-width: 600px; margin: 10px auto;">
+        <div class="col-xs-6" style="text-align: center;">
+            <div style="font-size: 50px;">5</div>
+            <div>Total Active Rewards</div>
+        </div>
+
+        <div class="col-xs-6">
+            <div style="font-size: 50px;">$45.00</div>
+            <div style="font-size: 14px;">Needed for the next reward</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div class="row" style="padding: 20px;">
+                <div class="col-xs-4">
+                    <div class="tile" style="background: rgba(0,0,0,0.05);">
+                        <div style="font-size: 13px;">expires</div>
+                        <div style="font-size: 30px;">May 16th</div>
+                        <div style="font-size: 13px;">started Feb 15th</div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="tile" style="background: rgba(0,0,0,0.05);">
+                        <div style="font-size: 13px;">expires</div>
+                        <div style="font-size: 30px;">May 28th</div>
+                        <div style="font-size: 13px;">started Feb 27th</div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="tile" style="background: rgba(0,0,0,0.05);">
+                        <div style="font-size: 13px;">expires</div>
+                        <div style="font-size: 30px;">June 11th</div>
+                        <div style="font-size: 13px;">started March 13th</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding: 20px;">
+                <div class="col-xs-4">
+                    <div class="tile" style="background: rgba(0,0,0,0.05);">
+                        <div style="font-size: 13px;">expires</div>
+                        <div style="font-size: 30px;">June 11th</div>
+                        <div style="font-size: 13px;">started March 13th</div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="tile" style="background: rgba(0,0,0,0.05);">
+                        <div style="font-size: 13px;">expires</div>
+                        <div style="font-size: 30px;">June 12th</div>
+                        <div style="font-size: 13px;">started March 14th</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

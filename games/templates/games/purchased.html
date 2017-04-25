@@ -1,0 +1,89 @@
+{% extends 'games/base.html' %}
+
+{% block navlist %}
+<ul class="nav navbar-nav navbar-left">
+    <li><a href="">Genres</a></li>
+    <li><a href="">Tags</a></li>
+    <li><a href="{% url 'games:purchased' %}">Purchased</a></li>
+    <li><a href="{% url 'games:myAccount' %}">My Account</a></li>
+</ul>
+{% endblock %}
+
+{% block contentKing %}
+<div style="max-width: 300px; margin: 50px auto;">
+    <a class="btn btn-lg btn-primary" href="{% url 'games:reward' %}">Go to My Rewards</a>
+</div>
+
+<div class="row" style="margin: 20px 0;">
+    <h3>Purchased Games</h3>
+    <div class="col-xs-4">
+        <div class="tile" style="padding: 0;">
+            <img src="{% static 'games/images/purchased-1.png'%}" style="width: 100%;">
+            <div style="padding: 5px;">
+                <h3 class="tile-title fcp-tile-title">Space Rangers: Quest</h3>
+                <div class="fcp-tile-genre">Adventure</div>
+                <p class="fcp-tile-description" style="margin-bottom: 0;">
+                    SPACE RANGERS: QUEST is a new text adventure in the world of Space Rangers with a touch of nostalgia. Save the Coalition from the new threat!
+                </p>
+            </div>
+            <div>
+                <span class="tag label label-info">Adventure<span data-role="remove"></span></span>
+                <span class="tag label label-info">Space<span data-role="remove"></span></span>
+                <span class="tag label label-info">RPG<span data-role="remove"></span></span>
+            </div>
+            <div>
+                <div class="fcp-small-tile-price">HK $679</div>
+                <div class="fcp-small-tile-model">Windows, Mac</div>
+                <div class="fcp-small-tile-date-purchase">Purchased: March 6th, 2017</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-xs-4">
+        <div class="tile" style="padding: 0;">
+            <img src="{% static 'games/images/purchased-2.png'%}" style="width: 100%;">
+            <div style="padding: 5px;">
+                <h3 class="tile-title fcp-tile-title">RPG Fighter League</h3>
+                <div class="fcp-tile-genre">Sports</div>
+                <p class="fcp-tile-description" style="margin-bottom: 0;">
+                    Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes.
+                </p>
+            </div>
+            <div>
+                <span class="tag label label-info">RPG-Maker<span data-role="remove"></span></span>
+                <span class="tag label label-info">RPG<span data-role="remove"></span></span>
+                <span class="tag label label-info">Indie<span data-role="remove"></span></span>
+            </div>
+            <div>
+                <div class="fcp-small-tile-price">HK $15</div>
+                <div class="fcp-small-tile-model">Windows</div>
+                <div class="fcp-small-tile-date-purchase">Purchased: March 4th, 2017</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-4">
+        <div class="tile" style="padding: 0;">
+            <img src="{% static 'games/images/purchased-3.png'%}" style="width: 100%;">
+            <div style="padding: 5px;">
+                <h3 class="tile-title fcp-tile-title">Sherlock Holmes: The Case of …</h3>
+                <div class="fcp-tile-genre">Strategy</div>
+                <p class="fcp-tile-description" style="margin-bottom: 0;">
+                    An unassuming woman has been charged with the death of a scoundrel.
+                </p>
+            </div>
+            <div>
+                <span class="tag label label-info">Mystery<span data-role="remove"></span></span>
+                <span class="tag label label-info">Detective<span data-role="remove"></span></span>
+                <span class="tag label label-info">FMV<span data-role="remove"></span></span>
+            </div>
+            <div>
+                <div class="fcp-small-tile-price">HK $39</div>
+                <div class="fcp-small-tile-model">Windows</div>
+                <div class="fcp-small-tile-date-purchase">Purchased: March 1st, 2017</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

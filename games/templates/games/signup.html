@@ -1,0 +1,63 @@
+{% extends 'games/base.html' %}
+
+{% block contentKing %}
+<div>
+    <div class="login-form" style="margin: 50px auto; max-width: 500px;">
+        {% csrf_token %}
+        <h3 style="text-align: center; width: 100%; margin-bottom: 25px;">Sign Up</h3>
+        <div style="text-align: center; margin: 20px auto 10px auto;">
+            <span class="fui-user" style="font-size: 70px; background: rgba(0,0,0,0.1); padding: 20px 20px 20px 26px; text-align: center; margin: 10px auto;"></span>
+        </div>
+
+       <!--  <a class="btn btn-block btn-default" href="#" style="width: 200px; margin: 0 auto 10px auto;">Upload Image</a> -->
+
+
+        <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for item in avatar_form %}
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4" >
+                            {{ item }}
+                    </div>
+                </div>
+            {% endfor %}
+            {% for field in form %}
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <span class="text-danger small">{{ field.errors }}</span>
+                        <div class="col-sm-offset-6 col-sm-6" >
+                            {{ field }}
+                        </div>
+                    </div>
+                    
+                    <br>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- <div class="form-group">
+            <input type="text" class="form-control login-field" value="" placeholder="Username" id="login-name">
+            <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass">
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control login-field" value="" placeholder="Email Address">
+            <label class="login-field-icon fui-lock"></label>
+        </div>
+ -->
+        <!-- <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button> -->
+        <a class="btn btn-primary btn-lg btn-block btn-inverse" href="{% url 'games:login' %}">Log In</a>
+    </div>
+</div>
+{% endblock %}
