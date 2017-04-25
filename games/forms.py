@@ -1,6 +1,7 @@
 from django import forms
 # from .models import UserAvatar
 from django.contrib.auth.models import User
+from .models import UserAvatar
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -9,5 +10,7 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password']
 
-class middleManAvatar(forms.Form):
-	avatar_image = forms.FileField()
+class middleManAvatar(forms.ModelForm):
+	class Meta:
+		model = UserAvatar
+		fields = ['username', 'avatar']

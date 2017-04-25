@@ -11,33 +11,46 @@ from .models import UserAvatar
 def index(request):
 	return render(request, 'games/index.html')
 
-def login(request):
+def loginpage(request):
 	return render(request, 'games/login.html')
 
 def signup(request):
 	form = UserForm(request.POST or None)
-	avatar_form = middleManAvatar(request.POST, request.FILES)
+	avatar_form = middleManAvatar(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		userN = form.save(commit=False)
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password']
 		userN.set_password(password)
 		userN.save()
+
 		avatar_profile = UserAvatar()
-		avatar_profile.user = userN
-		avatar_profile.avatar = avatar_form.cleaned_data['avatar_image']
+		avatar_profile.username = username
+		avatar_profile.avatar = request.FILES['avatar']
 		avatar_profile.save()
 		userN = authenticate(username=username, password=password)
+		
+
+
+		# if user is not None:
+  #           if user.is_active:
+  #               login(request, user)
+  #               albums = Album.objects.filter(user=request.user)
+  #               return render(request, 'music/index.html', {'albums': albums})
+
+
+
 		if userN is not None:
 			if userN.is_active:
-				login(request)
+				login(request, userN)
 				# albums = Album.objects.filter(user=request.user)
-				authenticated = True
 				return render(request, 'games/index.html') #, {'albums': albums})
+
+
 	avatar_form = middleManAvatar()
 	context = {
 	    "form": form,
-	    "avatar_form" : avatar_form
+	    "avatar_form" : avatar_form,
 	}
 	return render(request, 'games/signup.html', context)
 

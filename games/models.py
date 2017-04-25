@@ -45,9 +45,9 @@ class UserBalance(models.Model):
 	balance = models.FloatField(default=0)
 
 class UserAvatar(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	username = models.CharField(max_length=250, default="Unnamed User" )
 	avatar = models.FileField()
-	
+
 
 # @receiver(post_save, sender=User)
 # def create_user_avatar(sender, instance, created, **kwargs):
